@@ -1,3 +1,11 @@
+<script lang="ts" setup>
+const { theme } = useTheme()
+useLanguage()
+</script>
 <template>
-  <nuxt-page />
+  <van-config-provider :theme="theme">
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
+  </van-config-provider>
 </template>

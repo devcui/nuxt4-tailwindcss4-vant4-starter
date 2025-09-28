@@ -14,8 +14,17 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxtjs/i18n',
     '@vant/nuxt',
+    '@pinia/nuxt'
   ],
-  css: ['~/assets/css/main.css'],
+  imports: {
+    autoImport: true,
+    dirs: ['~/stores', '~/composables', '~/components']
+  },
+  components: [{ path: '~/components', pathPrefix: false }],
+  css: [
+    '~/assets/css/main.css',
+    '~/assets/css/fonts.css',
+  ],
   app: {
     baseURL: './',
     head: {
@@ -24,19 +33,40 @@ export default defineNuxtConfig({
       ]
     }
   },
+  icon: {
+    mode: 'css',
+    cssLayer: 'base'
+  },
   i18n: {
-    defaultLocale: 'en',
+    defaultLocale: 'zh_cn',
     strategy: "no_prefix",
     locales: [
       { code: 'en', name: 'English', file: 'en.json' },
-      { code: 'zh-CN', name: '简体中文', file: 'zh_cn.json' }
+      { code: 'zh_cn', name: '简体中文', file: 'zh_cn.json' }
     ],
     detectBrowserLanguage: {
       useCookie: true,
-      cookieKey: 'i18n_redirected',
+      cookieKey: 'locale',
       redirectOn: 'all',
       alwaysRedirect: true,
-      fallbackLocale: 'zh-CN'
+      fallbackLocale: 'zh_cn'
+    }
+  },
+  colorMode: {
+    preference: 'system',
+    fallback: 'light',
+    hid: 'nuxt-color-mode-script',
+    globalName: '__NUXT_COLOR_MODE__',
+    componentName: 'ColorScheme',
+    classPrefix: '',
+    classSuffix: '',
+    storage: 'cookie',
+    storageKey: 'theme'
+  },
+  vant: {
+    lazyload: {
+      lazyComponent: true,
+      lazyImage: true
     }
   },
   vite: {

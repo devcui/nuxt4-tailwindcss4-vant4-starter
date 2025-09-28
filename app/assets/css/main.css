@@ -1,1 +1,257 @@
 @import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* ======================================== 1. Vant 基础色板 ======================================== */
+  --color-van-black: var(--van-black);
+  --color-van-white: var(--van-white);
+  --color-van-gray-1: var(--van-gray-1);
+  --color-van-gray-2: var(--van-gray-2);
+  --color-van-gray-3: var(--van-gray-3);
+  --color-van-gray-4: var(--van-gray-4);
+  --color-van-gray-5: var(--van-gray-5);
+  --color-van-gray-6: var(--van-gray-6);
+  --color-van-gray-7: var(--van-gray-7);
+  --color-van-gray-8: var(--van-gray-8);
+  --color-van-red: var(--van-red);
+  --color-van-blue: var(--van-blue);
+  --color-van-orange: var(--van-orange);
+  --color-van-orange-dark: var(--van-orange-dark);
+  --color-van-orange-light: var(--van-orange-light);
+  --color-van-green: var(--van-green);
+
+  /* ======================================== 2. Vant 渐变色 ======================================== */
+  --gradient-van-red: var(--van-gradient-red);
+  --gradient-van-orange: var(--van-gradient-orange);
+
+  /* ======================================== 3. Vant 组件功能色 ======================================== */
+  --color-van-primary: var(--van-primary-color);
+  --color-van-success: var(--van-success-color);
+  --color-van-danger: var(--van-danger-color);
+  --color-van-warning: var(--van-warning-color);
+  --color-van-text: var(--van-text-color);
+  --color-van-text-2: var(--van-text-color-2);
+  --color-van-text-3: var(--van-text-color-3);
+  --color-van-active: var(--van-active-color);
+  --opacity-van-active: var(--van-active-opacity);
+  --opacity-van-disabled: var(--van-disabled-opacity);
+  --color-van-background: var(--van-background);
+  --color-van-background-2: var(--van-background-2);
+  --color-van-background-3: var(--van-background-3);
+
+  /* ======================================== 4. Vant 间距配置 ======================================== */
+  --spacing-van-base: var(--van-padding-base);
+  --spacing-van-xs: var(--van-padding-xs);
+  --spacing-van-sm: var(--van-padding-sm);
+  --spacing-van-md: var(--van-padding-md);
+  --spacing-van-lg: var(--van-padding-lg);
+  --spacing-van-xl: var(--van-padding-xl);
+
+  /* ======================================== 5. Vant 字体配置 ======================================== */
+  --font-van-bold: var(--van-font-bold);
+  --font-size-van-xs: var(--van-font-size-xs);
+  --font-size-van-sm: var(--van-font-size-sm);
+  --font-size-van-md: var(--van-font-size-md);
+  --font-size-van-lg: var(--van-font-size-lg);
+  --line-height-van-xs: var(--van-line-height-xs);
+  --line-height-van-sm: var(--van-line-height-sm);
+  --line-height-van-md: var(--van-line-height-md);
+  --line-height-van-lg: var(--van-line-height-lg);
+  --font-van-base: var(--van-base-font);
+  --font-van-price: var(--van-price-font);
+
+  /* ======================================== 6. Vant 动画配置 ======================================== */
+  --duration-van-base: var(--van-duration-base);
+  --duration-van-fast: var(--van-duration-fast);
+  --ease-van-out: var(--van-ease-out);
+  --ease-van-in: var(--van-ease-in);
+
+  /* ======================================== 7. Vant 边框配置 ======================================== */
+  --border-color-van-base: var(--van-border-color);
+  --border-width-van-base: var(--van-border-width);
+  --radius-van-sm: var(--van-radius-sm);
+  --radius-van-md: var(--van-radius-md);
+  --radius-van-lg: var(--van-radius-lg);
+  --radius-van-max: var(--van-radius-max);
+
+  /* ======================================== 8. Tailwind 核心变量映射（确保默认工具类可用） ======================================== */
+  /* 适配 Tailwind 默认颜色工具类（如 bg-black、text-white） */
+  --color-black: var(--van-black);
+  --color-white: var(--van-white);
+  --color-gray-100: var(--van-gray-1);
+  --color-gray-200: var(--van-gray-2);
+  --color-gray-300: var(--van-gray-3);
+  --color-gray-400: var(--van-gray-4);
+  --color-gray-500: var(--van-gray-5);
+  --color-gray-600: var(--van-gray-6);
+  --color-gray-700: var(--van-gray-7);
+  --color-gray-800: var(--van-gray-8);
+  --color-red-500: var(--van-red);
+  --color-blue-500: var(--van-blue);
+  --color-orange-500: var(--van-orange);
+  --color-orange-600: var(--van-orange-dark);
+  --color-orange-100: var(--van-orange-light);
+  --color-green-500: var(--van-green);
+
+  /* 适配 Tailwind 功能色工具类（如 bg-primary、text-success） */
+  --color-primary: var(--van-primary-color);
+  --color-success: var(--van-success-color);
+  --color-danger: var(--van-danger-color);
+  --color-warning: var(--van-warning-color);
+  --color-text: var(--van-text-color);
+  --color-text-secondary: var(--van-text-color-2);
+  --color-text-tertiary: var(--van-text-color-3);
+  --color-active: var(--van-active-color);
+  --background-color: var(--van-background);
+  --background-color-2: var(--van-background-2);
+  --background-color-3: var(--van-background-3);
+
+  /* 适配 Tailwind 间距工具类（如 p-2、m-4） */
+  --spacing-xs: var(--van-padding-xs);
+  --spacing-sm: var(--van-padding-sm);
+  --spacing-md: var(--van-padding-md);
+  --spacing-lg: var(--van-padding-lg);
+  --spacing-xl: var(--van-padding-xl);
+  --spacing-2xs: var(--van-padding-base);
+
+  /* 适配 Tailwind 字体工具类（如 text-sm、font-bold） */
+  --font-weight-bold: var(--van-font-bold);
+  --text-xs: var(--van-font-size-xs);
+  --text-sm: var(--van-font-size-sm);
+  --text-base: var(--van-font-size-md);
+  --text-lg: var(--van-font-size-lg);
+  --line-height-xs: var(--van-line-height-xs);
+  --line-height-sm: var(--van-line-height-sm);
+  --line-height-base: var(--van-line-height-md);
+  --line-height-lg: var(--van-line-height-lg);
+  --font-sans: var(--van-base-font);
+  --font-price: var(--van-price-font);
+
+  /* 适配 Tailwind 动画工具类（如 duration-300、ease-out） */
+  --duration-300: var(--van-duration-base);
+  --duration-200: var(--van-duration-fast);
+  --ease-out: var(--van-ease-out);
+  --ease-in: var(--van-ease-in);
+
+  /* 适配 Tailwind 边框工具类（如 border、rounded-md） */
+  --border-color: var(--van-border-color);
+  --border-width: var(--van-border-width);
+  --rounded-sm: var(--van-radius-sm);
+  --rounded-md: var(--van-radius-md);
+  --rounded-lg: var(--van-radius-lg);
+  --rounded-full: var(--van-radius-max);
+
+  /* 适配 Tailwind 透明度工具类（如 opacity-60） */
+  --opacity-active: var(--van-active-opacity);
+  --opacity-disabled: var(--van-disabled-opacity);
+}
+
+/* 4. 深色主题（van-theme-dark）：覆盖全局变量，确保深色模式下完全匹配 Vant 深色变量 */
+.van-theme-dark {
+  @theme {
+    /* ======================================== 1. 深色主题 - 基础色板覆盖 ======================================== */
+    --color-van-text: var(--van-text-color);
+    --color-van-text-2: var(--van-text-color-2);
+    --color-van-text-3: var(--van-text-color-3);
+    --border-color-van-base: var(--van-border-color);
+    --color-van-active: var(--van-active-color);
+    --color-van-background: var(--van-background);
+    --color-van-background-2: var(--van-background-2);
+    --color-van-background-3: var(--van-background-3);
+
+    /* ======================================== 2. 深色主题 - Tailwind 核心变量覆盖 ======================================== */
+    --color-text: var(--van-text-color);
+    --color-text-secondary: var(--van-text-color-2);
+    --color-text-tertiary: var(--van-text-color-3);
+    --border-color: var(--van-border-color);
+    --color-active: var(--van-active-color);
+    --background-color: var(--van-background);
+    --background-color-2: var(--van-background-2);
+    --background-color-3: var(--van-background-3);
+
+    /* ======================================== 3. 深色主题 - 关联色覆盖（确保衍生工具类生效） ======================================== */
+    --color-gray-800: var(--van-text-color);
+    --color-gray-600: var(--van-text-color-2);
+    --color-gray-500: var(--van-text-color-3);
+    --border-color-gray-300: var(--van-border-color);
+    --background-color-gray-100: var(--van-background);
+    --background-color-gray-50: var(--van-background-2);
+  }
+}
+
+/* 5. 自定义工具类：补充 Vant 特有样式（无省略，覆盖所有 Vant 特殊效果） */
+@layer utilities {
+  /* Vant 渐变色工具类 */
+  .bg-gradient-van-red {
+    background: var(--van-gradient-red);
+  }
+  .bg-gradient-van-orange {
+    background: var(--van-gradient-orange);
+  }
+
+  /* Vant 透明度工具类 */
+  .opacity-van-active {
+    opacity: var(--van-active-opacity);
+  }
+  .opacity-van-disabled {
+    opacity: var(--van-disabled-opacity);
+  }
+
+  /* Vant 字体工具类 */
+  .font-van-base {
+    font-family: var(--van-base-font);
+  }
+  .font-van-price {
+    font-family: var(--van-price-font);
+  }
+
+  /* Vant 背景色工具类 */
+  .bg-van-background {
+    background-color: var(--van-background);
+  }
+  .bg-van-background-2 {
+    background-color: var(--van-background-2);
+  }
+  .bg-van-background-3 {
+    background-color: var(--van-background-3);
+  }
+
+  /* Vant 边框工具类 */
+  .border-van-base {
+    border-color: var(--van-border-color);
+    border-width: var(--van-border-width);
+  }
+
+  /* Vant 动画工具类 */
+  .duration-van-base {
+    transition-duration: var(--van-duration-base);
+  }
+  .duration-van-fast {
+    transition-duration: var(--van-duration-fast);
+  }
+  .ease-van-out {
+    transition-timing-function: var(--van-ease-out);
+  }
+  .ease-van-in {
+    transition-timing-function: var(--van-ease-in);
+  }
+}
+
+/* 6. 基础样式重置：确保 Vant 变量在全局元素生效（无省略，覆盖所有基础元素） */
+:root,
+:host {
+  /* 强制继承 Vant 基础变量 */
+  color: var(--van-text-color);
+  background-color: var(--van-background);
+  font-family: var(--van-base-font);
+  border-color: var(--van-border-color);
+}
+
+/* 7. 深色主题基础样式重置：确保 .van-theme-dark 下全局元素匹配 Vant 深色样式 */
+.van-theme-dark :root,
+.van-theme-dark :host {
+  color: var(--van-text-color);
+  background-color: var(--van-background);
+  border-color: var(--van-border-color);
+}
